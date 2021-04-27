@@ -15,12 +15,12 @@ def start_build():
 def written():
     global total_written
 
-    total_written += 1
+    total_written = total_written + 1
 
 @hooks.register("stats")
-def stats:
+def stats():
     final_time = time.time() - start_time
     average = final_time / total_written if total_written else 0
-    report = "Converted: {} Time: {:.2f} sec Avg: {:.4f} sec/file"
+    report = "Converted: {} · Time: {:.2f} sec · Avg: {:.4f} sec/file"
 
     print(report.format(total_written, final_time, average))
